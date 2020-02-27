@@ -3,12 +3,17 @@ const { existsSync, promises: fsPromises } = require('fs'),
 
 /**
  * Pave the path to ensure it exists
+ * (the base path must exist if given)
  * @param {string} path
+ * @param {string} base
  * @returns {Promise<void>} A promise solved on success
  */
-const pavePath = async path => {
+const pavePath = async (path, base = '') => {
     const parts = normalize(path).split(sep);
-    let current = '';
+    let current = normalize(base);
+    if (base && !base.endsWith(sep)) {
+        current += sep;
+    }
     for (let i = 0; i < parts.length; i++) {
         if (i) {
             current += sep;
