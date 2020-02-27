@@ -1,0 +1,36 @@
+{
+  "name": "pave-path",
+  "version": "0.1.0",
+  "description": "Pave the path to ensure it exists.",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huang2002/pave-path.git"
+  },
+  "keywords": [
+    "pave",
+    "path",
+    "ensure",
+    "exist",
+    "file",
+    "dir",
+    "3h"
+  ],
+  "author": "3h",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/huang2002/pave-path/issues"
+  },
+  "homepage": "https://github.com/huang2002/pave-path#readme",
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "devDependencies": {
+    "@types/node": "^13.7.6"
+  }
+}
