@@ -1,15 +1,21 @@
 const pavePath = require('.'),
     { existsSync, rmdirSync } = require('fs');
 
-const path = './test/foo/bar';
-
-if (existsSync(path)) {
-    rmdirSync(path);
+if (existsSync('test')) {
+    rmdirSync('test', { recursive: true });
 }
 
-pavePath(path).then(() => {
-    console.assert(existsSync(path));
-}, err => {
+(async () => {
+
+    await pavePath('./test');
+
+    await pavePath('test\\foo\\bar');
+    console.assert(existsSync('./test/foo/bar'));
+
+    await pavePath('test/baz');
+    console.assert(existsSync('./test/baz'));
+
+})().catch(err => {
     console.error(err);
     process.exit(1);
 });
