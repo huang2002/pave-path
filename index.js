@@ -10,11 +10,14 @@ const { existsSync, promises: fsPromises } = require('fs'),
  */
 const pavePath = async (path, base = '') => {
     const parts = normalize(path).split(sep);
-    let current = normalize(base);
+    let current = base && normalize(base);
     if (base && !base.endsWith(sep)) {
         current += sep;
     }
     for (let i = 0; i < parts.length; i++) {
+        if (!parts[i]) {
+            continue;
+        }
         if (i) {
             current += sep;
         }
